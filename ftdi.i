@@ -28,9 +28,6 @@
 #ifdef SWIGPYTHON
 %typemap(argout) SWIGTYPE** OUTPUT %{ $result = SWIG_Python_AppendOutput($result, SWIG_NewPointerObj((void*)*$1,$*descriptor,0)); %}
 #endif
-#ifdef SWIGPERL
-%typemap(argout) SWIGTYPE** OUTPUT %{ $result = append_output(SWIG_NewPointerObj((void*)*$1,$*descriptor,0)); %}
-#endif
 
 %apply SWIGTYPE** OUTPUT { struct ftdi_device_list **devlist };
     int ftdi_usb_find_all(struct ftdi_context *ftdi, struct ftdi_device_list **devlist,
